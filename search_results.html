@@ -45,52 +45,52 @@
 
     <div class="container" style="margin-top: 50px;">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card" id="power_led" style="display:none">
-                <div class="card-block">
-                  <h4 class="card-title">Powering an LED</h4>
-                    <p class="card-text">Learn how to power an LED!</p>
-                    <p class="card-text">Level: <font color="green">Novice</font></p>
-                    <a href="#" class="btn btn-primary">Read more</a>
-                </div>
-              </div>
-              <div class="card" id="control_led" style="display:none">
-                <div class="card-block">
-                  <h4 class="card-title">Controlling an LED with Arduino</h4>
-                    <p class="card-text">Learn how to do something cooler with an LED!</p>
-                    <p class="card-text">Level: <font color="orange">Intermediate</font></p>
-                    <a href="#" class="btn btn-primary">Read more</a>
-                </div>
-              </div>
-              <div class="card" id="build_robot" style="display:none">
-                <div class="card-block">
-                  <h4 class="card-title">Building a line following robot</h4>
-                    <p class="card-text">No LEDs here! Unless you want to add them. That'd be fine.</p>
-                    <p class="card-text">Level: <font color="red">Expert</font></p>
-                    <a href="#" class="btn btn-primary">Read more</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card" id="tweak_search">
-                <div class="card-block">
-                  <h4 class="card-title">Modify search:</h4>
-                    <div class="btn-group" id="optionBtns">
-                        <button type="button" id="show_all" class="btn btn-primary">All</button>
-                        <button type="button" name="options" id="show_novice" class="btn btn-primary">Novice</button>
-                        <button type="button" name="options" id="show_inter" class="btn btn-primary">Intermediate</button>
-                        <button type="button" name="options" id="show_expert" class="btn btn-primary">Expert</button>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card" id="power_led" style="display:none">
+                        <div class="card-block">
+                            <h4 class="card-title">Powering an LED</h4>
+                            <p class="card-text">Learn how to power an LED!</p>
+                            <p class="card-text">Level: <font color="green">Novice</font></p>
+                            <a href="#" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                    <div class="card" id="control_led" style="display:none">
+                        <div class="card-block">
+                            <h4 class="card-title">Controlling an LED with Arduino</h4>
+                            <p class="card-text">Learn how to do something cooler with an LED!</p>
+                            <p class="card-text">Level: <font color="orange">Intermediate</font></p>
+                            <a href="#" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                    <div class="card" id="build_robot" style="display:none">
+                        <div class="card-block">
+                            <h4 class="card-title">Building a line following robot</h4>
+                            <p class="card-text">No LEDs here! Unless you want to add them. That'd be fine.</p>
+                            <p class="card-text">Level: <font color="red">Expert</font></p>
+                            <a href="#" class="btn btn-primary">Read more</a>
+                        </div>
                     </div>
                 </div>
-              </div>
+                <div class="col-md-6">
+                    <div class="card" id="tweak_search">
+                        <div class="card-block">
+                            <h4 class="card-title">Modify search:</h4>
+                            <div class="btn-group" id="optionBtns">
+                                <button type="button" id="show_all" class="btn btn-primary">All</button>
+                                <button type="button" name="options" id="show_novice" class="btn btn-primary">Novice</button>
+                                <button type="button" name="options" id="show_inter" class="btn btn-primary">Intermediate</button>
+                                <button type="button" name="options" id="show_expert" class="btn btn-primary">Expert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </div>
 
 
-    
+
     <!-- /.container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -99,9 +99,8 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script>
-
-    function showAll() {
+    <script>
+        function showAll() {
       var decoded = decodeURI(getParam('search_term'));
 
       power_string = "powering an led";
@@ -250,17 +249,13 @@
         }
       });
   });
-
-
-    
-
-
+  
   $(function() {
     $( "#searchBtn" )
       .click(function( event ) {
         event.preventDefault(); 
         var parameter = $("#search").val();
-        window.location = "file:///Users/christian/git/LEARN/search_results.html?search_term=" + parameter;
+        window.location = "search_results.html?search_term=" + parameter;
       });
   });
 
@@ -274,7 +269,7 @@
       }
   }
 
-</script>
+    </script>
 
 </body>
 

@@ -10,10 +10,11 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
+    <nav class="navbar navbar-dark bg-inverse navbar-full">
         <div class="container">
             <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
                 &#9776;
@@ -34,9 +35,9 @@
                         <a class="nav-link" href="tutorials.html">Tutorials</a>
                     </li>
                 </ul>
-                <form class="form-inline pull-xs-right">
-                    <input class="form-control" type="search" placeholder="Search">
-                    <button class="btn btn-success-outline" type="submit">Search</button>
+                <form class="form-inline pull-xs-right" method="get" action="tutorials.html">
+                    <input class="form-control" type="search" placeholder="Search" id="search" name="query">
+                    <button class="btn btn-success-outline" type="submit" id="searchBtn">Search</button>
                 </form>
             </div>
         </div>
@@ -46,250 +47,301 @@
 
         <div class="welcome">
             <h3>Welcome to the Placement Quiz!</h3>
-            <p>This quiz is meant to help you figure out what level of tutorials you should start at. After taking the quiz, you will be told if you are a novice, imtermediary, or expert user, and you can go and filter tutorials based on those levels of difficulty. Pick the best answer for each question, and if you do not know the answer, you can click the do not know option. Do not use the internet or others for help because we want to get the right placement for you! </p>
+            <p>This quiz is meant to help you figure out what level of tutorials you should start at. After taking the quiz,
+                you will be told if you are a novice, imtermediary, or expert user, and you can go and filter tutorials based
+                on those levels of difficulty. Pick the best answer for each question, and if you do not know the answer,
+                you can click the do not know option. Do not use the internet or others for help because we want to get the
+                right placement for you! </p>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-success btn-lg launch-quiz" data-toggle="modal" data-target="#question1">
-              Start the Quiz!
+                Start the Quiz!
             </button>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="question1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Question 1</h2>
-              </div>
-              <div class="modal-body">
-                What is an end line termination in the language C?
-                <br /> 
-                <input type="radio" name='end-line' class="options1" value="1"/>  ;
-                <br /> 
-                <input type="radio" name='end-line' class="options1" value="0"/>  !
-                <br /> 
-                <input type="radio" name='end-line' class="options1" value="0"/>  ~
-                <br /> 
-                <input type="radio" name='end-line' class="options1" value="0"/>  :)
-                <br /> 
-                <input type="radio" name='end-line' class="options1" value="0"/>  Do not know 
-                <br /> 
-              </div>
-              <div class="modal-footer">
-                <p class="error1" style="display: none; color=red;"></p>
-                <button type="button" class="btn btn-success next next1" disabled>Next</button>
-              </div>
+        <div class="modal fade" id="question1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Question 1</h2>
+                    </div>
+                    <div class="modal-body">
+                        What is an end line termination in the language C?
+                        <br />
+                        <input type="radio" name='end-line' class="options1" value="1" /> ;
+                        <br />
+                        <input type="radio" name='end-line' class="options1" value="0" /> !
+                        <br />
+                        <input type="radio" name='end-line' class="options1" value="0" /> ~
+                        <br />
+                        <input type="radio" name='end-line' class="options1" value="0" /> :)
+                        <br />
+                        <input type="radio" name='end-line' class="options1" value="0" /> Do not know
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <p class="error1" style="display: none; color=red;"></p>
+                        <button type="button" class="btn btn-success next next1" disabled>Next</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="question2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Question 2</h2>
-              </div>
-              <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-sm-6" style="padding-right: 0px;">
-                        What is the resistance of this resistor?
-                        <br /> 
-                        <input type="radio" name='resistor' class="options2" value="0"/> 10 K&#8486;
-                        <br /> 
-                        <input type="radio" name='resistor' class="options2" value="0"/>  1 k&#8486;
-                        <br /> 
-                        <input type="radio" name='resistor' class="options2" value="1"/>  100 k&#8486;
-                        <br /> 
-                        <input type="radio" name='resistor' class="options2" value="0"/>  1 M&#8486;
-                        <br /> 
-                        <input type="radio" name='resistor' class="options2" value="0"/>  Do not know 
-                        <br /> 
+        <div class="modal fade" id="question2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Question 2</h2>
                     </div>
-                    <div class="col-sm-5" style="float: left;">
-                        <img src="resistor.png" >
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-6" style="padding-right: 0px;">
+                                What is the resistance of this resistor?
+                                <br />
+                                <input type="radio" name='resistor' class="options2" value="0" /> 10 K&#8486;
+                                <br />
+                                <input type="radio" name='resistor' class="options2" value="0" /> 1 k&#8486;
+                                <br />
+                                <input type="radio" name='resistor' class="options2" value="1" /> 100 k&#8486;
+                                <br />
+                                <input type="radio" name='resistor' class="options2" value="0" /> 1 M&#8486;
+                                <br />
+                                <input type="radio" name='resistor' class="options2" value="0" /> Do not know
+                                <br />
+                            </div>
+                            <div class="col-sm-5" style="float: left;">
+                                <img src="resistor.png">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-success next next2" disabled>Next</button>
                     </div>
                 </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next next2" disabled>Next</button>
-              </div>
             </div>
-          </div>
         </div>
 
-                <!-- Modal -->
-        <div class="modal fade" id="question3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Question 3</h2>
-              </div>
-              <div class="modal-body">
+        <!-- Modal -->
+        <div class="modal fade" id="question3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Question 3</h2>
+                    </div>
+                    <div class="modal-body">
                         What is the function of a bread board?
-                        <br /> 
-                        <input type="radio" name='bread-board' class="options3" value="0"/>  A group of individuals who make robotics and circuits
-                        <br /> 
-                        <input type="radio" name='bread-board' class="options3" value="1"/>  A way to build and test circuits quickly
-                        <br /> 
-                        <input type="radio" name='bread-board' class="options3" value="0"/>  An object that bread is cut on
-                        <br /> 
-                        <input type="radio" name='bread-board' class="options3" value="0"/>  A resistor
-                        <br /> 
-                        <input type="radio" name='bread-board' class="options3" value="0"/>  Do not know 
-                        <br /> 
-                  </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next next3" disabled>Next</button>
-              </div>
+                        <br />
+                        <input type="radio" name='bread-board' class="options3" value="0" /> A group of individuals who make robotics and circuits
+                        <br />
+                        <input type="radio" name='bread-board' class="options3" value="1" /> A way to build and test circuits quickly
+                        <br />
+                        <input type="radio" name='bread-board' class="options3" value="0" /> An object that bread is cut on
+                        <br />
+                        <input type="radio" name='bread-board' class="options3" value="0" /> A resistor
+                        <br />
+                        <input type="radio" name='bread-board' class="options3" value="0" /> Do not know
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-success next next3" disabled>Next</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-
-                        <!-- Modal -->
-        <div class="modal fade" id="question4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Question 4</h2>
-              </div>
-              <div class="modal-body">
-                        How to change the color of a multi-color LED?
-                        <br /> 
-                        <input type="radio" name='multi-color' class="options4" value="1"/> Send a current through specific resitstor(s) associated with that color
-                        <br /> 
-                        <input type="radio" name='multi-color' class="options4" value="0"/>  Change the amount of voltage in the circuit depending what color you want
-                        <br /> 
-                        <input type="radio" name='multi-color' class="options4" value="0"/>  Flip a little switch inside the LED
-                        <br /> 
-                        <input type="radio" name='multi-color' class="options4" value="0"/>  Do not know 
-                        <br /> 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button> 
-                <button type="button" class="btn btn-success next next4" disabled>Next</button>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="question5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Question 5</h2>
-              </div>
-              <div class="modal-body">
-
-                <div class="row">
-                    <div class="col-sm-5" style="padding-right: 0px;">
-                        Which circuit will light the LED?
-                        <br /> 
-                        <input type="radio" name='LED' class="options5" value="1"/>  A
-                        <br /> 
-                        <input type="radio" name='LED' class="options5" value="0"/>  B
-                        <br /> 
-                        <input type="radio" name='LED' class="options5" value="0"/>  Do not know 
-                        <br /> 
+        <div class="modal fade" id="question4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Question 4</h2>
                     </div>
-                    <div class="col-sm-6" style="float: left;">
-                        <img src="dual-circuits.png" >
+                    <div class="modal-body">
+                        How to change the color of a multi-color LED?
+                        <br />
+                        <input type="radio" name='multi-color' class="options4" value="1" /> Send a current through specific resitstor(s) associated with that color
+                        <br />
+                        <input type="radio" name='multi-color' class="options4" value="0" /> Change the amount of voltage in the circuit depending what color you want
+                        <br />
+                        <input type="radio" name='multi-color' class="options4" value="0" /> Flip a little switch inside the LED
+                        <br />
+                        <input type="radio" name='multi-color' class="options4" value="0" /> Do not know
+                        <br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-success next next4" disabled>Next</button>
                     </div>
                 </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next next5" disabled>Next</button>
-              </div>
             </div>
-          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="question5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Question 5</h2>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-5" style="padding-right: 0px;">
+                                Which circuit will light the LED?
+                                <br />
+                                <input type="radio" name='LED' class="options5" value="1" /> A
+                                <br />
+                                <input type="radio" name='LED' class="options5" value="0" /> B
+                                <br />
+                                <input type="radio" name='LED' class="options5" value="0" /> Do not know
+                                <br />
+                            </div>
+                            <div class="col-sm-6" style="float: left;">
+                                <img src="dual-circuits.png">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
+                        <button type="button" class="btn btn-success next next5" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!--novice Modal -->
-        <div class="modal fade" id="novice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
-              </div>
-              <div class="modal-body">
-                <p>You are a <b>Novice</b> user. Look for tutorials with the same level as you are. </p>
-              </div>
-              <div class="modal-footer">
-                 <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
-              </div>
+        <div class="modal fade" id="novice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are a <b>Novice</b> user. Look for tutorials with the same level as you are. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Intermediate Modal -->
-        <div class="modal fade" id="intermediate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
-              </div>
-              <div class="modal-body">
-                <p>You are an <b>Intermediate</b> user. Look for tutorials with the same level as you are.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
-              </div>
+        <div class="modal fade" id="intermediate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are an <b>Intermediate</b> user. Look for tutorials with the same level as you are.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-         <!--Expert Modal -->
-        <div class="modal fade" id="expert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
-              </div>
-              <div class="modal-body">
-                <p>You are an <b>Expert</b> user. Look for tutorials with the same level as you are.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
-              </div>
+        <!--Expert Modal -->
+        <div class="modal fade" id="expert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are an <b>Expert</b> user. Look for tutorials with the same level as you are.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
     </div>
     <!-- /.container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            var availableTags = [
+            "Powering an LED",
+            "Controlling an LED with Arduino",
+            "Building a line following robot"
+            ];
+
+            function split( val ) {
+            return val.split( /,\s*/ );
+            }
+
+            function extractLast( term ) {
+            return split( term ).pop();
+            }
+        
+            $( "#search" )
+            // don't navigate away from the field on tab when selecting an item
+            .bind( "keydown", function( event ) {
+                if ( event.keyCode === $.ui.keyCode.TAB &&
+                    $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+                }
+            })
+            .autocomplete({
+                minLength: 0,
+                source: function( request, response ) {
+                    // delegate back to autocomplete, but extract the last term
+                    response( $.ui.autocomplete.filter(
+                        availableTags, extractLast( request.term ) ) );
+                },
+                focus: function() {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function( event, ui ) {
+                    if(ui.item.value == availableTags[0]){
+                        window.location.assign("tutorial.html");
+                    } else {
+                        this.value = ui.item.value;
+                    }
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
-    <script type="text/javascript">
-        var slide =1;
+<script type="text/javascript">
+    var slide =1;
         var score = 0;
 
         $(".next").click(function() {
@@ -421,22 +473,26 @@
                 $('#expert').modal('show');
             }
         }
-    </script>
+
+</script>
 
 <style type="text/css">
     .welcome {
         text-align: center;
-
-        margin-top: 100px;
-
+        margin-top: 50px;
     }
+    
     .options {
         margin-right: 5px;
     }
+    
     .back {
         float: left;
     }
-    .launch-quiz {
+    
+    .ui-autocomplete {
+        z-index: 2000;
     }
 </style>
+
 </html>

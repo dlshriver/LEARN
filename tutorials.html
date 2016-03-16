@@ -10,6 +10,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body>
@@ -34,8 +35,8 @@
                         <a class="nav-link" href="tutorials.html">Tutorials <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <form class="form-inline pull-xs-right">
-                    <input class="form-control" type="search" placeholder="Search">
+                <form class="form-inline pull-xs-right" method="get" action="tutorials.html">
+                    <input class="form-control" type="search" placeholder="Search" id="search" name="query">
                     <button class="btn btn-success-outline" type="submit">Search</button>
                 </form>
             </div>
@@ -44,7 +45,7 @@
 
     <div class="container" style="margin-top: 50px">
         <div class="row col-md-8">
-            <div class="novice col-md-6">
+            <div class="novice col-md-6" id="power_led">
                 <a href="tutorial.html" style="text-decoration: none; color: black;">
                     <div class="card">
                         <div class="card-header">Powering an LED</div>
@@ -58,7 +59,7 @@
                     </div>
                 </a>
             </div>
-            <div class="expert col-md-6">
+            <div class="expert col-md-6" id="build_robot">
                 <a href="" style="text-decoration: none; color: black;">
                     <div class="card">
                         <div class="card-header">Building a line following robot</div>
@@ -72,7 +73,7 @@
                     </div>
                 </a>
             </div>
-            <div class="intermediate col-md-6">
+            <div class="intermediate col-md-6" id="control_led">
                 <a href="" style="text-decoration: none; color: black;">
                     <div class="card">
                         <div class="card-header">Controlling an LED with an Arduino</div>
@@ -119,32 +120,134 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            var availableTags = [
+            "Powering an LED",
+            "Controlling an LED with Arduino",
+            "Building a line following robot"
+            ];
+
+            function split( val ) {
+            return val.split( /,\s*/ );
+            }
+
+            function extractLast( term ) {
+            return split( term ).pop();
+            }
+        
+            $( "#search" )
+            // don't navigate away from the field on tab when selecting an item
+            .bind( "keydown", function( event ) {
+                if ( event.keyCode === $.ui.keyCode.TAB &&
+                    $( this ).autocomplete( "instance" ).menu.active ) {
+                    event.preventDefault();
+                }
+            })
+            .autocomplete({
+                minLength: 0,
+                source: function( request, response ) {
+                    // delegate back to autocomplete, but extract the last term
+                    response( $.ui.autocomplete.filter(
+                        availableTags, extractLast( request.term ) ) );
+                },
+                focus: function() {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function( event, ui ) {
+                    if(ui.item.value == availableTags[0]){
+                        window.location.assign("tutorial.html");
+                    } else {
+                        this.value = ui.item.value;
+                    }
+                    return false;
+                }
+            });
+        });
+    </script>
     <script>
         $(":radio").change(function(e) {
+            filterByQuery();
             switch(e.target.value){
                 case "all":
-                    $(".novice").show();
-                    $(".intermediate").show();
-                    $(".expert").show();
+                    $(".novice:visible").show();
+                    $(".intermediate:visible").show();
+                    $(".expert:visible").show();
                     break;
                 case "novice":
-                    $(".novice").show();
+                    $(".novice:visible").show();
                     $(".intermediate").hide();
                     $(".expert").hide();
                     break;
                 case "intermediate":
                     $(".novice").hide();
-                    $(".intermediate").show();
+                    $(".intermediate:visible").show();
                     $(".expert").hide();
                     break;
                 case "expert":
                     $(".novice").hide();
                     $(".intermediate").hide();
-                    $(".expert").show();
+                    $(".expert:visible").show();
                     break;
             }
         })
+        
+        $( document ).ready(function() {
+            filterByQuery();
+        });
+        
+        function filterByQuery() {
+            var query = getParameterByName('query');
+
+            power_string = "powering an led";
+            control_string = "controlling an led with arduino";
+            robot_string = "building a line following robot";
+
+            if(query != null && query !== undefined) {
+                var decoded = decodeURI(query);
+                $("#search").val(decoded);
+                
+                $("#power_led").hide();
+                $("#control_led").hide();
+                $("#build_robot").hide();
+                
+                if(power_string.indexOf(decoded.toLowerCase()) != -1) {
+                    $("#power_led").show();
+                }
+
+                if(control_string.indexOf(decoded.toLowerCase()) != -1) {
+                    $("#control_led").show();
+                }
+
+                if(robot_string.indexOf(decoded.toLowerCase()) != -1) {
+                    $("#build_robot").show();
+                }
+            } else {
+                $("#power_led").show();
+                $("#control_led").show();
+                $("#build_robot").show();
+            }
+        }
+        
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            url = url.toLowerCase(); // This is just to avoid case sensitiveness  
+            name = name.replace(/[\[\]]/g, "\\$&").toLowerCase();// This is just to avoid case sensitiveness for query parameter name
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return '';
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
     </script>
 </body>
+<style>
+    .ui-autocomplete {
+        z-index: 2000;
+    }
+</style>
 
 </html>

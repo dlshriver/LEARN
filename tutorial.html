@@ -10,6 +10,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </head>
 
 <body>
@@ -34,9 +35,9 @@
                         <a class="nav-link" href="tutorials.html">Tutorials <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <form class="form-inline pull-xs-right">
-                    <input class="form-control" type="search" placeholder="Search">
-                    <button class="btn btn-success-outline" type="submit">Search</button>
+                <form class="form-inline pull-xs-right" method="get" action="tutorials.html">
+                    <input class="form-control" type="search" placeholder="Search" id="search" name="query">
+                    <button class="btn btn-success-outline" type="submit" id="searchBtn">Search</button>
                 </form>
             </div>
         </div>
@@ -167,6 +168,53 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            var availableTags = [
+            "Powering an LED",
+            "Controlling an LED with Arduino",
+            "Building a line following robot"
+            ];
+
+            function split( val ) {
+            return val.split( /,\s*/ );
+            }
+
+            function extractLast( term ) {
+            return split( term ).pop();
+            }
+        
+            $( "#search" )
+            // don't navigate away from the field on tab when selecting an item
+            .bind( "keydown", function( event ) {
+                if ( event.keyCode === $.ui.keyCode.TAB &&
+                    $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+                }
+            })
+            .autocomplete({
+                minLength: 0,
+                source: function( request, response ) {
+                    // delegate back to autocomplete, but extract the last term
+                    response( $.ui.autocomplete.filter(
+                        availableTags, extractLast( request.term ) ) );
+                },
+                focus: function() {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function( event, ui ) {
+                    if(ui.item.value == availableTags[0]){
+                        window.location.assign("tutorial.html");
+                    } else {
+                        this.value = ui.item.value;
+                    }
+                    return false;
+                }
+            });
+        });
+    </script>
     <script>
         var page = 1;
         function changePage(toPage){
@@ -190,5 +238,10 @@
         }
     </script>
 </body>
+<style>
+    .ui-autocomplete {
+        z-index: 2000;
+    }
+</style>
 
 </html>
