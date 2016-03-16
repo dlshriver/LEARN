@@ -51,6 +51,7 @@
                 <div class="card-block">
                   <h4 class="card-title">Powering an LED</h4>
                     <p class="card-text">Learn how to power an LED!</p>
+                    <p class="card-text">Level: <font color="green">Novice</font></p>
                     <a href="#" class="btn btn-primary">Read more</a>
                 </div>
               </div>
@@ -58,6 +59,7 @@
                 <div class="card-block">
                   <h4 class="card-title">Controlling an LED with Arduino</h4>
                     <p class="card-text">Learn how to do something cooler with an LED!</p>
+                    <p class="card-text">Level: <font color="orange">Intermediate</font></p>
                     <a href="#" class="btn btn-primary">Read more</a>
                 </div>
               </div>
@@ -65,6 +67,7 @@
                 <div class="card-block">
                   <h4 class="card-title">Building a line following robot</h4>
                     <p class="card-text">No LEDs here! Unless you want to add them. That'd be fine.</p>
+                    <p class="card-text">Level: <font color="red">Expert</font></p>
                     <a href="#" class="btn btn-primary">Read more</a>
                 </div>
               </div>
@@ -73,23 +76,11 @@
               <div class="card" id="tweak_search">
                 <div class="card-block">
                   <h4 class="card-title">Modify search:</h4>
-                    <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-primary active">
-                        <input type="radio" name="options" id="show_all" autocomplete="off" checked>All
-                        <script> </script>
-                      </label>
-                      <label class="btn btn-primary">
-                        <input type="radio" name="options" id="show_novice" autocomplete="off">Novice
-                        <script></script>
-                      </label>
-                      <label class="btn btn-primary">
-                        <input type="radio" name="options" id="show_inter" autocomplete="off">Intermediate
-                        <script></script>
-                      </label>
-                      <label class="btn btn-primary">
-                        <input type="radio" name="options" id="show_expert" autocomplete="off">Expert
-                        <script></script>
-                      </label>
+                    <div class="btn-group" id="optionBtns">
+                        <button type="button" id="show_all" class="btn btn-primary">All</button>
+                        <button type="button" name="options" id="show_novice" class="btn btn-primary">Novice</button>
+                        <button type="button" name="options" id="show_inter" class="btn btn-primary">Intermediate</button>
+                        <button type="button" name="options" id="show_expert" class="btn btn-primary">Expert</button>
                     </div>
                 </div>
               </div>
@@ -111,28 +102,79 @@
 <script>
 
     function showAll() {
-          $("#power_led").show();
-          $("#control_led").show();
-          $("#build_robot").show();
+      var decoded = decodeURI(getParam('search_term'));
+
+      power_string = "powering an led";
+      control_string = "controlling an led with arduino";
+      robot_string = "building a line following robot";
+
+      if(decoded != 0) {
+      if(power_string.indexOf(decoded.toLowerCase()) != -1) {
+        $("#power_led").show();
       }
+      if(control_string.indexOf(decoded.toLowerCase()) != -1) {
+        $("#control_led").show();
+      }
+      if(robot_string.indexOf(decoded.toLowerCase()) != -1) {
+        $("#build_robot").show();
+      }
+      } else {
+        $("#power_led").show();
+        $("#control_led").show();
+        $("#build_robot").show();
+      }
+    }
 
     function showNov() {
-          $("#power_led").show();
-          $("#control_led").hide();
-          $("#build_robot").hide();
+      var decoded = decodeURI(getParam('search_term'));
+      power_string = "powering an led";
+      if(power_string.indexOf(decoded.toLowerCase()) != -1 || decoded == 0) {
+        $("#power_led").show();
       }
+      $("#control_led").hide();
+      $("#build_robot").hide();
+    }
 
     function showInt() {
-          $("#power_led").hide();
-          $("#control_led").show();
-          $("#build_robot").hide();
+       var decoded = decodeURI(getParam('search_term'));
+
+      control_string = "controlling an led with arduino";
+      
+      if(control_string.indexOf(decoded.toLowerCase()) != -1 || decoded == 0) {
+        $("#control_led").show();
       }
+      $("#power_led").hide();
+      $("#build_robot").hide();
+    }
 
     function showExp() {
-          $("#power_led").hide();
-          $("#control_led").hide();
-          $("#build_robot").show();
+      var decoded = decodeURI(getParam('search_term'));
+
+      robot_string = "building a line following robot";
+      
+      if(robot_string.indexOf(decoded.toLowerCase()) != -1 || decoded == 0) {
+        $("#build_robot").show();
       }
+      $("#control_led").hide();
+      $("#power_led").hide();
+    }
+
+    
+      $('#show_all').click(function () {
+        showAll();
+      });
+
+      $('#show_novice').click(function () {
+        showNov();
+      });
+
+      $('#show_inter').click(function () {
+        showInt();
+      });
+
+      $('#show_expert').click(function () {
+        showExp();
+      });
     
     $( document ).ready(function() {
         var decoded = decodeURI(getParam('search_term'));
@@ -161,11 +203,6 @@
           $("#control_led").show();
           $("#build_robot").show();
         }
-        
-        $('#show_all').click(showAll)
-        $("#show_novice").click(showNov)
-        $("#show_inter").click(showInt)
-        $("#show_expert").click(showExp)
     });
 
     $(function() {
