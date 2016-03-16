@@ -22,13 +22,13 @@
                 <a class="navbar-brand" href="index.html"><img src="elephant-green.png" width="32px" height="32px"></a>
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="quiz.html">Quiz</a>
+                        <a class="nav-link" href="quiz.html">Quiz <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tutorials.html">Tutorials</a>
@@ -66,19 +66,20 @@
               <div class="modal-body">
                 What is an end line termination in the language C?
                 <br /> 
-                <input type="radio" name='end-line' class="options"/>  ;
+                <input type="radio" name='end-line' class="options1" value="1"/>  ;
                 <br /> 
-                <input type="radio" name='end-line' class="options"/>  !
+                <input type="radio" name='end-line' class="options1" value="0"/>  !
                 <br /> 
-                <input type="radio" name='end-line' class="options"/>  ~
+                <input type="radio" name='end-line' class="options1" value="0"/>  ~
                 <br /> 
-                <input type="radio" name='end-line' class="options"/>  :)
+                <input type="radio" name='end-line' class="options1" value="0"/>  :)
                 <br /> 
-                <input type="radio" name='end-line' class="options"/>  Do not know 
+                <input type="radio" name='end-line' class="options1" value="0"/>  Do not know 
                 <br /> 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success next">Next</button>
+                <p class="error1" style="display: none; color=red;"></p>
+                <button type="button" class="btn btn-success next next1" disabled>Next</button>
               </div>
             </div>
           </div>
@@ -100,15 +101,15 @@
                     <div class="col-sm-6" style="padding-right: 0px;">
                         What is the resistance of this resistor?
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/> 10 K&#8486;
+                        <input type="radio" name='resistor' class="options2" value="0"/> 10 K&#8486;
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  1 k&#8486;
+                        <input type="radio" name='resistor' class="options2" value="0"/>  1 k&#8486;
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  100 k&#8486;
+                        <input type="radio" name='resistor' class="options2" value="1"/>  100 k&#8486;
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  1 M&#8486;
+                        <input type="radio" name='resistor' class="options2" value="0"/>  1 M&#8486;
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Do not know 
+                        <input type="radio" name='resistor' class="options2" value="0"/>  Do not know 
                         <br /> 
                     </div>
                     <div class="col-sm-5" style="float: left;">
@@ -119,7 +120,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next">Next</button>
+                <button type="button" class="btn btn-success next next2" disabled>Next</button>
               </div>
             </div>
           </div>
@@ -138,20 +139,20 @@
               <div class="modal-body">
                         What is the function of a bread board?
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  A group of individuals who make robotics and circuits
+                        <input type="radio" name='bread-board' class="options3" value="0"/>  A group of individuals who make robotics and circuits
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  A way to build and test circuits quickly
+                        <input type="radio" name='bread-board' class="options3" value="1"/>  A way to build and test circuits quickly
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  An object that bread is cut on
+                        <input type="radio" name='bread-board' class="options3" value="0"/>  An object that bread is cut on
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  A resistor
+                        <input type="radio" name='bread-board' class="options3" value="0"/>  A resistor
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Do not know 
+                        <input type="radio" name='bread-board' class="options3" value="0"/>  Do not know 
                         <br /> 
                   </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next">Next</button>
+                <button type="button" class="btn btn-success next next3" disabled>Next</button>
               </div>
             </div>
           </div>
@@ -170,18 +171,18 @@
               <div class="modal-body">
                         How to change the color of a multi-color LED?
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/> Send a current through specific resitstor(s) associated with that color
+                        <input type="radio" name='multi-color' class="options4" value="1"/> Send a current through specific resitstor(s) associated with that color
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Change the amount of voltage in the circuit depending what color you want
+                        <input type="radio" name='multi-color' class="options4" value="0"/>  Change the amount of voltage in the circuit depending what color you want
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Flip a little switch inside the LED
+                        <input type="radio" name='multi-color' class="options4" value="0"/>  Flip a little switch inside the LED
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Do not know 
+                        <input type="radio" name='multi-color' class="options4" value="0"/>  Do not know 
                         <br /> 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next">Next</button>
+                <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button> 
+                <button type="button" class="btn btn-success next next4" disabled>Next</button>
               </div>
             </div>
           </div>
@@ -203,11 +204,11 @@
                     <div class="col-sm-5" style="padding-right: 0px;">
                         Which circuit will light the LED?
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  A
-                        <br />
-                        <input type="radio" name='end-line' class="options"/>  B
+                        <input type="radio" name='LED' class="options5" value="1"/>  A
                         <br /> 
-                        <input type="radio" name='end-line' class="options"/>  Do not know 
+                        <input type="radio" name='LED' class="options5" value="0"/>  B
+                        <br /> 
+                        <input type="radio" name='LED' class="options5" value="0"/>  Do not know 
                         <br /> 
                     </div>
                     <div class="col-sm-6" style="float: left;">
@@ -218,14 +219,14 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary back" data-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-success next">Next</button>
+                <button type="button" class="btn btn-success next next5" disabled>Next</button>
               </div>
             </div>
           </div>
         </div>
 
-                <!-- Modal -->
-        <div class="modal fade" id="placement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+        <!--novice Modal -->
+        <div class="modal fade" id="novice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -235,15 +236,52 @@
                 <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
               </div>
               <div class="modal-body">
-                <h3><b>NOVICE</b></h3>
+                <p>You are a <b>Novice</b> user. Look for tutorials with the same level as you are. </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success next">Close</button>
+                 <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
-
+        <!-- Intermediate Modal -->
+        <div class="modal fade" id="intermediate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
+              </div>
+              <div class="modal-body">
+                <p>You are an <b>Intermediate</b> user. Look for tutorials with the same level as you are.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+         <!--Expert Modal -->
+        <div class="modal fade" id="expert" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h2 class="modal-title" id="myModalLabel">Congrats!</h2>
+              </div>
+              <div class="modal-body">
+                <p>You are an <b>Expert</b> user. Look for tutorials with the same level as you are.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success btn-close" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <!-- /.container -->
 
@@ -252,6 +290,8 @@
 </body>
     <script type="text/javascript">
         var slide =1;
+        var score = 0;
+
         $(".next").click(function() {
             slide++;
             switch(slide) {
@@ -259,24 +299,29 @@
                     $('#question1').modal('show');
                     break;
                 case 2: 
+                    score += getCheckedValue(1);
                     $('#question2').modal('show');
                     $('#question1').modal('hide');
                     break;
                 case 3:
+                    score += getCheckedValue(2);
                     $('#question3').modal('show');                    
                     $('#question2').modal('hide');
                     break;
                 case 4:
+                    score += getCheckedValue(3);
                     $('#question4').modal('show');
                     $('#question3').modal('hide');
                     break;
                 case 5:
+                    score += getCheckedValue(4);
                     $('#question5').modal('show');
                     $('#question4').modal('hide');
                     break;
                 case 6:
-                    $('#placement').modal('show');
+                    score += getCheckedValue(5);
                     $('#question5').modal('hide');
+                    showLevelUser();
                     break;
                 case 7:
                     $('#placement').modal('hide');
@@ -289,22 +334,27 @@
             slide--;
             switch(slide) {
                 case 1: 
+                    score -= getCheckedValue(1);
                     $('#question1').modal('show');
                     $('#question2').modal('hide');
                     break;
                 case 2: 
+                    score -= getCheckedValue(2);
                     $('#question2').modal('show');
                     $('#question3').modal('hide');
                     break;
                 case 3:
+                    score -= getCheckedValue(3);
                     $('#question3').modal('show');                    
                     $('#question4').modal('hide');
                     break;
                 case 4:
+                    score -= getCheckedValue(4);
                     $('#question4').modal('show');
                     $('#question5').modal('hide');
                     break;
                 case 5:
+                    score -= getCheckedValue(5);
                     $('#question5').modal('show');
                     break;
             }
@@ -312,7 +362,65 @@
 
         $(".close").click(function() {
             slide =1;
+            score =0;
+            $(".next1").prop('disabled', true);
+            $(".next2").prop('disabled', true);
+            $(".next3").prop('disabled', true);
+            $(".next4").prop('disabled', true);
+            $(".next5").prop('disabled', true);
         });
+
+        $(".btn-close").click(function() {
+            slide =1;
+            score =0;
+            $(".next1").prop('disabled', true);
+            $(".next2").prop('disabled', true);
+            $(".next3").prop('disabled', true);
+            $(".next4").prop('disabled', true);
+            $(".next5").prop('disabled', true);
+        });
+
+
+        $(".options1").change(function(){
+            $(".next1").prop('disabled', false);
+        });
+
+        $(".options2").change(function(){
+            $(".next2").prop('disabled', false);
+        });
+
+        $(".options3").change(function(){
+            $(".next3").prop('disabled', false);
+        });
+
+        $(".options4").change(function(){
+            $(".next4").prop('disabled', false);
+        });
+
+        $(".options5").change(function(){
+            $(".next5").prop('disabled', false);
+        });
+
+        function getCheckedValue(type) {
+            var str1 = "options";
+            var optionType = str1.concat(type);
+            var options = document.getElementsByClassName(optionType);
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].checked) {
+                    return Number(options[i].value,10);
+                }
+            }
+        }
+
+        function showLevelUser() {
+            if (score < 2) {
+                $('#novice').modal('show');
+            } else if (2 <= score && score < 4) {
+                $('#intermediate').modal('show');      
+            } else { 
+                $('#expert').modal('show');
+            }
+        }
     </script>
 
 <style type="text/css">
