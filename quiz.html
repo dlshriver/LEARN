@@ -174,13 +174,13 @@
                         <h2 class="modal-title" id="myModalLabel">Question 4</h2>
                     </div>
                     <div class="modal-body">
-                        How to change the color of a multi-color LED?
+                        What could be used as a microcontroller in a robotics project?
                         <br />
-                        <input type="radio" name='multi-color' class="options4" value="1" /> Send a current through specific resitstor(s) associated with that color
+                        <input type="radio" name='multi-color' class="options4" value="1" /> Arduino
                         <br />
-                        <input type="radio" name='multi-color' class="options4" value="0" /> Change the amount of voltage in the circuit depending what color you want
+                        <input type="radio" name='multi-color' class="options4" value="0" /> Radio
                         <br />
-                        <input type="radio" name='multi-color' class="options4" value="0" /> Flip a little switch inside the LED
+                        <input type="radio" name='multi-color' class="options4" value="0" /> LED
                         <br />
                         <input type="radio" name='multi-color' class="options4" value="0" /> Do not know
                         <br />
@@ -308,7 +308,7 @@
             function extractLast( term ) {
             return split( term ).pop();
             }
-        
+
             $( "#search" )
             // don't navigate away from the field on tab when selecting an item
             .bind( "keydown", function( event ) {
@@ -347,17 +347,17 @@
         $(".next").click(function() {
             slide++;
             switch(slide) {
-                case 1: 
+                case 1:
                     $('#question1').modal('show');
                     break;
-                case 2: 
+                case 2:
                     score += getCheckedValue(1);
                     $('#question2').modal('show');
                     $('#question1').modal('hide');
                     break;
                 case 3:
                     score += getCheckedValue(2);
-                    $('#question3').modal('show');                    
+                    $('#question3').modal('show');
                     $('#question2').modal('hide');
                     break;
                 case 4:
@@ -385,19 +385,19 @@
         $(".back").click(function() {
             slide--;
             switch(slide) {
-                case 1: 
+                case 1:
                     score -= getCheckedValue(1);
                     $('#question1').modal('show');
                     $('#question2').modal('hide');
                     break;
-                case 2: 
+                case 2:
                     score -= getCheckedValue(2);
                     $('#question2').modal('show');
                     $('#question3').modal('hide');
                     break;
                 case 3:
                     score -= getCheckedValue(3);
-                    $('#question3').modal('show');                    
+                    $('#question3').modal('show');
                     $('#question4').modal('hide');
                     break;
                 case 4:
@@ -468,8 +468,8 @@
             if (score < 2) {
                 $('#novice').modal('show');
             } else if (2 <= score && score < 4) {
-                $('#intermediate').modal('show');      
-            } else { 
+                $('#intermediate').modal('show');
+            } else {
                 $('#expert').modal('show');
             }
         }
@@ -481,26 +481,26 @@
         text-align: center;
         margin-top: 50px;
     }
-    
+
     .options {
         margin-right: 5px;
     }
-    
+
     .back {
         float: left;
     }
-    
+
     .ui-autocomplete {
         z-index: 2000;
     }
-    
+
     .modal {
         position: absolute;
         max-height: 100%;
         overflow-y: auto;
         top: 10%;
     }
-    
+
     @media (min-height: 600px) {
         .modal {
             position: fixed;
